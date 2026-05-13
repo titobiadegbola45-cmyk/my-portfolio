@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #fff;
+            scroll-behavior: smooth
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #111827;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #38bdf8
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px
+        }
+
+        nav a:hover {
+            color: #38bdf8
+        }
+
+        .menu {
+            display: none;
+            cursor: pointer
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0f172a, #1e293b)
+        }
+
+        .hero h1 {
+            font-size: 48px
+        }
+
+        .hero span {
+            color: #38bdf8
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #38bdf8;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold
+        }
+
+        .section {
+            padding: 90px 20px;
+            max-width: 1100px;
+            margin: auto
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .2)
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #38bdf8;
+            font-weight: bold;
+            cursor: pointer
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111827
+        }
+
+        .top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #38bdf8;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            display: none
+        }
+
+        @media(max-width:768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background: #111827;
+                padding: 15px;
+                border-radius: 10px
+            }
+
+            nav.show {
+                display: block
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0
+            }
+
+            .menu {
+                display: block
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class='logo'>MyPortfolio</div>
+        <div class='menu' onclick='toggleMenu()'>☰</div>
+        <nav id='nav'>
+            <a href='#home'>Home</a>
+            <a href='#about'>About</a>
+            <a href='#projects'>Projects</a>
+            <a href='#contact'>Contact</a>
+        </nav>
+    </header>
+    <section class='hero' id='home'>
+        <div>
+            <h1>Hello, I'm <span id='typed'></span></h1>
+            <p>Frontend Developer | Designer | Creator</p>
+            <a href='#projects' class='btn'>View Work</a>
+        </div>
+    </section>
+    <section class='section' id='about'>
+        <h2>About Me</h2><br>
+        <p>I build responsive and interactive websites with modern technologies.</p>
+    </section>
+    <section class='section' id='projects'>
+        <h2>Projects</h2><br>
+        <div class='grid'>
+            <div class='card'>
+                <h3>Project One</h3>
+                <p>E-commerce landing page.</p>
+            </div>
+            <div class='card'>
+                <h3>Project Two</h3>
+                <p>Dashboard UI design.</p>
+            </div>
+            <div class='card'>
+                <h3>Project Three</h3>
+                <p>Portfolio website.</p>
+            </div>
+        </div>
+    </section>
+    <section class='section' id='contact'>
+        <h2>Contact Me</h2>
+        <form onsubmit='sendMsg(event)'>
+            <input type='text' placeholder='Your Name' required>
+            <input type='email' placeholder='Your Email' required>
+            <textarea rows='5' placeholder='Your Message' required></textarea>
+            <button type='submit'>Send</button>
+        </form>
+        <p id='msg'></p>
+    </section>
+    <footer>© 2026 MyPortfolio. All rights reserved.</footer>
+    <button class='top' id='topBtn' onclick='window.scrollTo({top:0,behavior:"smooth"})'>↑</button>
+    <script>
+        function toggleMenu() { 
+
+            document.getElementById('nav').classList.toggle('show') 
+        
+        }
+            const words = ['Titobi', 'A Developer', 'A Creator']; 
+            let i = 0, 
+            j = 0, 
+            current = '', 
+            isDeleting = false; 
+            function type() { current = words[i]; document.getElementById('typed').textContent = current.substring(0, j); if (!isDeleting && j < current.length) { j++ } else if (isDeleting && j > 0) { j-- } else { isDeleting = !isDeleting; if (!isDeleting) i = (i + 1) % words.length } setTimeout(type, isDeleting ? 80 : 140) } type();
+            function sendMsg(e) { e.preventDefault(); document.getElementById('msg').textContent = 'Message sent successfully!'; e.target.reset() }
+            window.onscroll = () => { document.getElementById('topBtn').style.display = window.scrollY > 300 ? 'block' : 'none' }
+    </script>
+</body>
+
+</html>

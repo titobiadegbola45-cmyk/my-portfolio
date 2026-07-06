@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="1st portfolio.css">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />">
+</head>
+<body>
+    <div class="adegbola ">
+        <img src="" alt="logo">
+            <h3>Adegbola Titobi</h3>
+            <p>HOME</p>
+            <p>About Me</p>
+            <p>Projects</p>
+            <button>
+            <h1>Contact Me</h1>
+            </button>
+    </div>
+
+     <div class="portfolio">
+        <div class="at">
+        <h1 >Adegbola Titobi</h1>
+        <p>- Frontend Developer,with knowledge <br> in web development  and design ,i <br> offer the best projects resulting in <br> quality work.</p>
+        </div>
+            <img src="images/IMG_20250724_163634.jpg" alt="">
+    </div>
+
+ 
+</body>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    
+
+
+    <form  id="loginForm">
+        <label for="">
+            <input type="email" name="" id="Email">
+        </label>
+        <label for="">
+            <input type="password" name="" id="pass">
+        </label>
+
+        <button>Login</button>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+            const loginForm = document.getElementById('loginForm');
+            const Email  = document.getElementById('Email');
+            const pass = document.getElementById('pass');
+
+
+
+            loginForm.addEventListener('submit', async (e)=>{
+                e.preventDefault();
+                const email = Email.value.trim();
+                const password = pass.value.trim();
+
+
+                if(!email || !password){
+                    alert('Please enter your details');
+                    return;
+                }
+
+
+                alert('loading')
+                try{
+
+                    const res = await fetch("http://localhost:5000/login",{
+                        method: "POST",
+                        headers: {"Content-Type":"Application/json"},
+                        body: JSON.stringify({email, password})
+                    });
+
+
+                    const data = await res.json();
+
+
+                    if(!res.ok){
+                        console.log(data.message);
+                    }
+
+                    if(res.ok){
+                        alert(data.message)
+                    }
+
+
+                }catch(err){
+                    console.error(err.message);
+                }
+
+
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+     
+
+
+             async function sendData() {
+                
+
+                const res = await fetch ("http://localhost:5000/login", {
+
+                    method: "POST",
+                    headers: {"Content-Type": "Application/json"},
+                    body: JSON.stringify({email: "ayo" })
+
+
+                    });
+
+
+                    const data = await res.json();
+
+                    if(!res.ok){
+                        console.log(data.message);
+                        return
+                    }
+
+
+                    console.log(data);
+
+
+
+
+
+
+
+
+                
+             }
+
+            //  sendData();
+
+            
+
+    </script>
+</body>
+</html>
+</html>

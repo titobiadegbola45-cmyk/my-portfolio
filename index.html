@@ -4,45 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my portfolio</title>
+
+    <meta name="description"
+        content="Titobi Adegbola - Frontend Developer building responsive and interactive web experiences.">
+
+    <title>Titobi Adegbola | Frontend Developer</title>
+
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <div class="nav">
-        <div class="logo">My portfolio</div>
-        <div class="ab" onclick="toggleMenu()">☰</div>
-        <div class="navlink">
+
+    <!-- Navigation -->
+    <header class="nav">
+        <a href="index.html" class="logo">Benjamins<span>.</span>dev</a>
+
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation menu">
+            ☰
+        </button>
+
+        <nav class="navlink">
             <a href="index.html">Home</a>
             <a href="About.html">About</a>
-            <a href="project.html">Project's</a>
-            <a href="contact.html"> Contact</a>
-        </div>
-    </div>
+            <a href="project.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-    <div class="hh">
-        <h1> Hello, <span class="developer">i'm A Developer</span> </h1>
-        <p>Frontend Developer | Designer | Creator</p>
-        <button class="btn"><a href='project.html'>View Work</a></button>
-    </div>
+
+    <!-- Hero Section -->
+    <main class="hero">
+
+        <p class="intro">HELLO, I'M</p>
+
+        <h1>
+            Titobi Adegbola
+        </h1>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+        <h2>
+            Frontend Developer &amp; Creative Builder
+        </h2>
+
+        <p class="hero-text">
+            I build responsive, modern and interactive websites using
+            HTML, CSS and JavaScript. I enjoy turning ideas into clean
+            and user-friendly digital experiences.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="project.html" class="btn primary-btn">
+                View My Work
+            </a>
+
+            <a href="contact.html" class="btn secondary-btn">
+                Contact Me
+            </a>
+
+        </div>
+
+
+        <!-- Social Links -->
+        <div class="social-links">
+
+            <!-- Replace # with your real links -->
+            <a href=" https://github.com/titobiadegbola45-cmyk" target="_blank" rel="noopener noreferrer">
+                GitHub
+            </a>
+
+            <a href=" https://www.linkedin.com/in/titobiadegbola" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </main>
+
 
     <script>
-        // document.querySelector(".ab").addEventListener("click," () 
-        // =>{
-
-        //     document.querySelector(".navlink").classList.toggle('active');
-        // } )
-
-        //  function toggleMenu() { 
-
-        //     document.getElementById('nav').classList.toggle('show') 
-        //  }
         function toggleMenu() {
-            document.querySelector('.navlink').classList.toggle('active');
+            document.querySelector(".navlink").classList.toggle("active");
         }
 
-        
+        gsap.to("h1", {
+            x: 30,
+            duration: 5
+        });
     </script>
+
 </body>
 
 </html>

@@ -4,34 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <meta name="description"
+        content="Learn more about Titobi Adegbola, a Frontend Developer who builds responsive and interactive websites.">
+
+    <title>About | Titobi Adegbola</title>
+
     <link rel="stylesheet" href="About.css">
 </head>
 
 <body>
-    <div class="nav">
-        <div class="logo">My portfolio</div>
-        <div class="navlink">
+
+    <!-- Navigation -->
+    <header class="nav">
+        <a href="index.html" class="logo">Titobi<span>.</span></a>
+
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation menu">
+            ☰
+        </button>
+
+        <nav class="navlink">
             <a href="index.html">Home</a>
             <a href="About.html">About</a>
-            <a href="project.html">Project's</a>
-            <a href="contact.html"> Contact</a>
+            <a href="project.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- About Section -->
+    <main class="about-section">
+
+        <!-- Profile Image -->
+        <div class="profile">
+            <img src="images/Passport size portfolio.png" alt="Titobi Adegbola">
         </div>
-    </div>
 
 
-    <div class="profile">
-        <img src="images/TITOBI2.jpeg" alt="profile picture">
-    </div>
+        <!-- About Content -->
+        <section class="about-content">
+
+            <p class="section-label">ABOUT ME</p>
+
+            <h1>I'm Titobi Adegbola.</h1>
+
+            <h2>Frontend Developer &amp; Creative Builder</h2>
+
+            <p>
+                I am a passionate Frontend Developer who enjoys building
+                responsive, interactive and user-friendly websites. I use
+                HTML, CSS and JavaScript to turn ideas into functional
+                digital experiences.
+            </p>
+
+            <p>
+                I enjoy learning new technologies, improving my problem-solving
+                skills and building projects that solve real problems. I am also
+                currently expanding my knowledge of backend development.
+            </p>
 
 
-    <div class="hero">
-        <h2>About me</h2>
-        <p>My name is ADEGBOLA BENJAMIN TITOBILOLUWA.</p>
-        <p>I build responsive and interactive websites with modern technologies.</p>
-    </div>
+            <!-- Skills -->
+            <div class="skills">
+
+                <h3>My Skills</h3>
+
+                <div class="skill-list">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Responsive Design</span>
+                    <span>Git & GitHub</span>
+                    <span>Backend Development</span>
+                </div>
+
+            </div>
 
 
+            <a href="project.html" class="about-btn">
+                View My Projects
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script>
+        function toggleMenu() {
+            document.querySelector(".navlink").classList.toggle("active");
+        }
+    </script>
 
 </body>
 
